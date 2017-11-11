@@ -25,9 +25,7 @@ describe('Компонент App', () => {
       });
 
       it('button-panel button.button-next', () => {
-        expect(wrapper.find('.button-panel button.button-next')).toHaveLength(
-          1
-        );
+        expect(wrapper.find('.button-panel button.button-next')).toHaveLength(1);
       });
     });
 
@@ -44,7 +42,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
         it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
           expect(
@@ -57,7 +55,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
         it('Третий компонент Step должен содержать props key="Finish", onClick=App.handleTabClick, isSelected=false, number=3, isClickable=false', () => {
           expect(
@@ -70,7 +68,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
       });
       describe('Если state.step === 2', () => {
@@ -88,7 +86,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
         it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
           expect(
@@ -101,7 +99,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
         it('Третий компонент Step должен содержать props key="Finish", onClick=App.handleTabClick, isSelected=false, number=3, isClickable=false', () => {
           expect(
@@ -114,7 +112,7 @@ describe('Компонент App', () => {
                 isClickable={false}
               />
             )
-          );
+          ).toBeTruthy();
         });
         describe('Если state.step === 3', () => {
           wrapper.setState({
@@ -131,7 +129,7 @@ describe('Компонент App', () => {
                   isClickable={false}
                 />
               )
-            );
+            ).toBeTruthy();
           });
           it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
             expect(
@@ -144,7 +142,7 @@ describe('Компонент App', () => {
                   isClickable={false}
                 />
               )
-            );
+            ).toBeTruthy();
           });
           it('Третий компонент Step должен содержать props key="Finish", onClick=App.handleTabClick, isSelected=false, number=3, isClickable=false', () => {
             expect(
@@ -157,7 +155,7 @@ describe('Компонент App', () => {
                   isClickable={false}
                 />
               )
-            );
+            ).toBeTruthy();
           });
         });
       });
@@ -168,9 +166,7 @@ describe('Компонент App', () => {
           isTimeOver: true
         });
 
-        expect(
-          wrapper.find('button.button-next').props().disabled
-        ).toBeTruthy();
+        expect(wrapper.find('button.button-next').props().disabled).toBeTruthy();
       });
 
       it('При клике должен быть вызыван метод handleClickNextForm', () => {
