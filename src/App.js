@@ -39,6 +39,9 @@ class App extends Component {
           type="text"
           placeholder="Какие новости?"
         />
+        {this.state.news.map(newsPost => (
+          <NewsPost key={newsPost.id} text={newsPost.text} />
+        ))}
       </div>
     );
   }
