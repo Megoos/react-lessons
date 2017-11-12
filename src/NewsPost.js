@@ -47,7 +47,7 @@ class NewsPost extends Component {
         ))}
         <input
           type="text"
-          placeholder="Прокоментируй!"
+          placeholder="Прокомментируй!"
           className="comment-input"
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
