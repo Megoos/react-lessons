@@ -31,19 +31,25 @@ describe('Компонент App', () => {
 
     describe('Должен возвращать 3 компонента Step', () => {
       describe('Если state.step === 1', () => {
+        const wrapper = shallow(<App />);
+        wrapper.setState({step: 1});
+        wrapper.update();
         it('Первый компонент Step должен содержать props key="Personal information", onClick=App.handleTabClick, isSelected=true, number=1, isClickable=false', () => {
           expect(
             wrapper.contains(
               <Step
                 key="Personal information"
                 onClick={wrapper.instance().handleTabClick}
-                isSelected={true}
+                isSelected
                 number={1}
                 isClickable={false}
-              />
+              >
+                Personal information
+              </Step>
             )
           ).toBeTruthy();
         });
+
         it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
           expect(
             wrapper.contains(
@@ -53,7 +59,9 @@ describe('Компонент App', () => {
                 isSelected={false}
                 number={2}
                 isClickable={false}
-              />
+              >
+                Card information
+              </Step>
             )
           ).toBeTruthy();
         });
@@ -66,38 +74,44 @@ describe('Компонент App', () => {
                 isSelected={false}
                 number={3}
                 isClickable={false}
-              />
+              >
+                Finish
+              </Step>
             )
           ).toBeTruthy();
         });
       });
       describe('Если state.step === 2', () => {
-        wrapper.setState({
-          step: 2
-        });
+        const wrapper = shallow(<App />);
+        wrapper.setState({step: 2});
         it('Первый компонент Step должен содержать props key="Personal information", onClick=App.handleTabClick, isSelected=false, number=1, isClickable=true', () => {
           expect(
             wrapper.contains(
               <Step
                 key="Personal information"
                 onClick={wrapper.instance().handleTabClick}
-                isSelected={true}
+                isSelected={false}
                 number={1}
-                isClickable={false}
-              />
+                isClickable
+              >
+                Personal information
+              </Step>
             )
           ).toBeTruthy();
         });
-        it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
+
+        it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=true, number=2, isClickable=false', () => {
           expect(
             wrapper.contains(
               <Step
                 key="Card information"
                 onClick={wrapper.instance().handleTabClick}
-                isSelected={false}
+                isSelected
                 number={2}
                 isClickable={false}
-              />
+              >
+                Card information
+              </Step>
             )
           ).toBeTruthy();
         });
@@ -110,53 +124,55 @@ describe('Компонент App', () => {
                 isSelected={false}
                 number={3}
                 isClickable={false}
-              />
+              >
+                Finish
+              </Step>
             )
           ).toBeTruthy();
         });
-        describe('Если state.step === 3', () => {
-          wrapper.setState({
-            step: 3
-          });
-          it('Первый компонент Step должен содержать props key="Personal information", onClick=App.handleTabClick, isSelected=false, number=1, isClickable=true', () => {
-            expect(
-              wrapper.contains(
-                <Step
-                  key="Personal information"
-                  onClick={wrapper.instance().handleTabClick}
-                  isSelected={true}
-                  number={1}
-                  isClickable={false}
-                />
-              )
-            ).toBeTruthy();
-          });
-          it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=false', () => {
-            expect(
-              wrapper.contains(
-                <Step
-                  key="Card information"
-                  onClick={wrapper.instance().handleTabClick}
-                  isSelected={true}
-                  number={2}
-                  isClickable={false}
-                />
-              )
-            ).toBeTruthy();
-          });
-          it('Третий компонент Step должен содержать props key="Finish", onClick=App.handleTabClick, isSelected=false, number=3, isClickable=false', () => {
-            expect(
-              wrapper.contains(
-                <Step
-                  key="Finish"
-                  onClick={wrapper.instance().handleTabClick}
-                  isSelected={false}
-                  number={3}
-                  isClickable={false}
-                />
-              )
-            ).toBeTruthy();
-          });
+      });
+
+      describe('Если state.step === 3', () => {
+        const wrapper = shallow(<App />);
+        wrapper.setState({step: 3});
+        it('Первый компонент Step должен содержать props key="Personal information", onClick=App.handleTabClick, isSelected=false, number=1, isClickable=true', () => {
+          expect(
+            wrapper.contains(
+              <Step
+                key="Personal information"
+                onClick={wrapper.instance().handleTabClick}
+                isSelected={false}
+                number={1}
+                isClickable
+              >
+                Personal information
+              </Step>
+            )
+          ).toBeTruthy();
+        });
+        it('Второй компонент Step должен содержать props key="Card information", onClick=App.handleTabClick, isSelected=false, number=2, isClickable=true', () => {
+          expect(
+            wrapper.contains(
+              <Step
+                key="Card information"
+                onClick={wrapper.instance().handleTabClick}
+                isSelected={false}
+                number={2}
+                isClickable
+              >
+                Card information
+              </Step>
+            )
+          ).toBeTruthy();
+        });
+        it('Третий компонент Step должен содержать props key="Finish", onClick=App.handleTabClick, isSelected=true, number=3, isClickable=false', () => {
+          expect(
+            wrapper.contains(
+              <Step key="Finish" onClick={wrapper.instance().handleTabClick} isSelected number={3} isClickable={false}>
+                Finish
+              </Step>
+            )
+          ).toBeTruthy();
         });
       });
     });
