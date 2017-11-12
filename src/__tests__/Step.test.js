@@ -35,7 +35,7 @@ describe('Компонент Step', () => {
 
     it('Если props isClickable=true, должен присутствовать класс step-clickable вместе с классом step', () => {
       const wrapper = shallow(
-        <Step isSelected isClickable number={1} onClick={onClickMock}>
+        <Step isSelected={false} isClickable number={1} onClick={onClickMock}>
           test string
         </Step>
       );
