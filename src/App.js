@@ -7,6 +7,7 @@ const stepTitles = ['Personal information', 'Card information', 'Finish'];
 class App extends Component {
   render() {
     return <div className="container" />;
+    
   }
 }
 
