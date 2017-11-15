@@ -95,7 +95,7 @@ class App extends Component {
             </Step>
           ))}
         </div>
-        <div className="form-content">123</div>
+        <div className="form-content">{this.renderForm()}</div>
         <div className="button-panel">
           <button
             className="button-next"
