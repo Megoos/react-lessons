@@ -20,7 +20,8 @@ class Auth extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault();
     const { email, password } = this.state;
     this.setState({ error: !authorizeUser(email, password) });
   };
@@ -44,7 +45,9 @@ class Auth extends Component {
           onChange={this.handleChange}
         />
 
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button type="submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
 
         {error && <p className="error">Email or password is wrong</p>}
       </form>
