@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import "./App.css";
-import Step from "./Step";
-import PersonalForm from "./PersonalForm";
-import CardForm from "./CardForm";
+import React, { Component } from 'react';
+import './App.css';
+import Step from './Step';
+import PersonalForm from './PersonalForm';
+import CardForm from './CardForm';
 
-const stepTitles = ["Personal information", "Card information", "Finish"];
+const stepTitles = ['Personal information', 'Card information', 'Finish'];
 
 class App extends Component {
   state = {
     step: 1,
-    firstName: "",
-    lastName: "",
-    email: "",
-    cardNumber: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    cardNumber: '',
     isTimeOver: false
   };
 
@@ -26,10 +26,10 @@ class App extends Component {
     switch (step) {
       case 1:
         return (
-          firstName !== "" &&
-          lastName !== "" &&
-          email !== "" &&
-          email.includes("@")
+          firstName !== '' &&
+          lastName !== '' &&
+          email !== '' &&
+          email.includes('@')
         );
       case 2:
         return cardNumber.length === 16;
@@ -40,6 +40,7 @@ class App extends Component {
 
   handleTabClick = stepCount => {
     this.setState({ step: stepCount });
+    this.setState({ isTimeOver: false });
   };
 
   handleChangeForm = (name, value) => {
@@ -71,9 +72,9 @@ class App extends Component {
           />
         );
       case 3:
-        return "Поздравляем!";
+        return 'Поздравляем!';
       default:
-        return "Ошибка";
+        return 'Ошибка';
     }
   };
 

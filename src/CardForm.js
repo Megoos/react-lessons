@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Title from "./Title";
-import "./CardForm.css";
+import React, { Component } from 'react';
+import Title from './Title';
+import './CardForm.css';
 
 export class CardForm extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class CardForm extends Component {
     this.id = setInterval(() => {
       const leftTime = Math.max(this.state.leftTime - 1, 0);
       this.setState({ leftTime });
-      if (leftTime === 0 && this.state.leftTime === 1) {
+      if (leftTime === 0 && this.state.leftTime === 0) {
         this.props.onChangeTimeOver(true);
       }
     }, 1000);
