@@ -26,6 +26,12 @@ class Auth extends Component {
     this.setState({ error: !authorizeUser(email, password) });
   };
 
+  componentWillReceiveProps(nextProps) {
+    const { isAuthorized } = nextProps;
+
+    this.setState({ isAuthorized });
+  }
+
   render() {
     const { isAuthorized, error } = this.state;
     return isAuthorized ? (
